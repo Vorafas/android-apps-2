@@ -1,2 +1,3 @@
 rootProject.name='SaveInstanceState'
 include ':app'
+include ':p0711_preferencessimple'
