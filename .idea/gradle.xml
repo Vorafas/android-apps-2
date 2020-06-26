@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/p0711_preferencessimple" />
             <option value="$PROJECT_DIR$/p0721_preferencessimple2" />
             <option value="$PROJECT_DIR$/p0731_preferencesenable" />
+            <option value="$PROJECT_DIR$/p0741_preferencescode" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
