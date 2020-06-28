@@ -4,18 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.lang.ref.WeakReference;
 import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
     final String LOG_TAG = "myLogs";
 
-    Handler h;
+    Handler handle;
     TextView tvInfo;
     Button btnStart;
     ProgressBar pgBar;
@@ -28,15 +30,15 @@ public class MainActivity extends AppCompatActivity {
         tvInfo = findViewById(R.id.tvInfo);
         pgBar = findViewById(R.id.pgBar);
         btnStart = findViewById(R.id.btnStart);
-        h = new Handler() {
-            public void handleMessage(android.os.Message msg) {
-                tvInfo.setText("Закачено файлов: " + msg.what);
-                if (msg.what == 10) {
-                    btnStart.setEnabled(true);
-                    pgBar.setVisibility(View.INVISIBLE);
-                }
-            }
-        };
+        handle = new MyHandler(this);
+    }
+
+    void someMethod(Message msg) {
+        tvInfo.setText("Закачено файлов: " + msg.what);
+        if (msg.what == 10) {
+            btnStart.setEnabled(true);
+            pgBar.setVisibility(View.INVISIBLE);
+        }
     }
 
     public void onClick(View v) {
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 Thread thrd = new Thread(() -> {
                     for (int i = 0; i <= 10; i++) {
                         downloadFile();
-                        h.sendEmptyMessage(i);
+                        handle.sendEmptyMessage(i);
                         Log.d(LOG_TAG, "Закачено файлов: " + i);
                     }
                 });
@@ -65,6 +67,22 @@ public class MainActivity extends AppCompatActivity {
             TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException exc) {
             exc.printStackTrace();
+        }
+    }
+
+    static class MyHandler extends Handler {
+        WeakReference<MainActivity> wrActivity;
+
+        public MyHandler(MainActivity activity) {
+            wrActivity = new WeakReference<MainActivity>(activity);
+        }
+
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            MainActivity activity = wrActivity.get();
+            if (activity != null) {
+                activity.someMethod(msg);
+            }
         }
     }
 }
