@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/p0741_preferencescode" />
             <option value="$PROJECT_DIR$/p0751_files" />
             <option value="$PROJECT_DIR$/p0801_handler" />
+            <option value="$PROJECT_DIR$/p0811_handlersimplemessage" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
