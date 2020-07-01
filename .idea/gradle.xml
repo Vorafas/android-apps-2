@@ -21,6 +21,7 @@
             <option value="$PROJECT_DIR$/p0821_handleradvmessage" />
             <option value="$PROJECT_DIR$/p0831_handlermessagemanager" />
             <option value="$PROJECT_DIR$/p0841_handlerrunnable" />
+            <option value="$PROJECT_DIR$/p0851_runnableuithread" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
