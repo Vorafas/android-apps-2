@@ -25,6 +25,7 @@
             <option value="$PROJECT_DIR$/p0861_asynktask" />
             <option value="$PROJECT_DIR$/p0871_asynctaskparams" />
             <option value="$PROJECT_DIR$/p0881_asynctaskresult" />
+            <option value="$PROJECT_DIR$/p0891_asynctaskcancel" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
