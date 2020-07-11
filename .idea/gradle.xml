@@ -30,6 +30,8 @@
             <option value="$PROJECT_DIR$/p0911_asynctaskrotate" />
             <option value="$PROJECT_DIR$/p0921servicesimple" />
             <option value="$PROJECT_DIR$/p0931_servicestop" />
+            <option value="$PROJECT_DIR$/p0941_servicekillclient" />
+            <option value="$PROJECT_DIR$/p0942_servicekillserver" />
             <option value="$PROJECT_DIR$/test" />
           </set>
         </option>
