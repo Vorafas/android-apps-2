@@ -1,3 +1,4 @@
+include ':p0951servicebackpendingintent'
 include ':p0942_servicekillserver'
 include ':p0941_servicekillclient'
 include ':p0931_servicestop'
